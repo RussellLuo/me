@@ -1,0 +1,40 @@
+$def with (post, admin)
+
+$var title: $post['title'] - RussellLuo
+$var admin: $admin
+
+<div class="row space-bot" id="blog-post-view">
+    <div class="c4">
+        <ul class="nav blog-sidebar">
+            <li class="list-divider-bottom"><a href="#">========== 回到顶部 ==========</a></li>
+            <li class="list-divider-top" id="prev-and-next">
+                <ul class="pagination pagination-sm">
+                    $if post.get('postid_prev'):
+                        <li><a href="/blog/view/$post['postid_prev']">&laquo; 上一篇</a></li>
+                    $else:
+                        <li class="disabled"><span>&laquo; 上一篇</span></li>
+                    $if post.get('postid_next'):
+                        <li id="go-to-next"><a href="/blog/view/$post['postid_next']"> 下一篇 &raquo;</a></li>
+                    $else:
+                        <li id="go-to-next" class="disabled"><span>下一篇 &raquo;</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="c8 main-region">
+        <h1>$post['title']</h1>
+        <h3>$post['dateCreated']</h3>
+        $:post['description']
+        <div class="copyright-declaration">
+            <h1>版权声明</h1>
+            <p>本博客的的原创文章采用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">创作共享许可协议</a></p>
+            <p>非商业用途：转载请署名（RussellLuo + 本博客地址）</p>
+            <p>商业性用途：须先征得本人同意（<a href="/about">Email</a>）</p>
+        </div>
+        <ul class="pager">
+            <li class="previous"><span><span class="glyphicon glyphicon-eye-open"></span> 阅读($post['pageviews'])</span></li>
+            <li class="next"><a href="" id="do-recommend"><span class="glyphicon glyphicon-thumbs-up"></span> 推荐($post['starred'])</a></li>
+            <li id="recommend-status-tip" class="warning-text"></li>
+        </ul>
+    </div>
+</div>

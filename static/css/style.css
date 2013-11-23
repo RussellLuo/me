@@ -1,0 +1,262 @@
+@import url('/static/css/bootstrap.css');
+@import url('/static/css/bootstrap-theme.css');
+@import url('/static/css/ivory.css');
+@import url('/static/css/serholiu.css');
+
+body {
+    margin-top: 60px;
+    /*background: #e6ebea fixed center top no-repeat;
+    background: url('/static/img/bg4.jpg');*/
+}
+
+.thumbnail a, .thumbnail img {
+    width: 260px;
+    height: 170px;
+}
+
+/* Solve anchor link problem with Bootstrap's top navbar,
+   see http://stackoverflow.com/questions/14526334/bootstrap-anchors-and-body-top-margin-padding.
+  
+   Note: there's some user-experience problems if this style is assigned to tag <a>.
+   
+   BTW: the height of my top navbar is 40px.
+*/
+.target-with-top-navbar {
+    padding-top: 40px;
+    margin-top: -40px;
+}
+
+/* Responsive affix side bar,
+   thank filtermusic, see http://stackoverflow.com/questions/13338897/twitter-bootstrap-responsive-affix.
+
+   Note: I just use the @media-CSS part with my own aditional style .blog-sidebar
+*/
+.blog-sidebar {
+    position: fixed;
+    top: 60px;
+    max-width: 280px;
+    border: solid 1px #eee;
+    background-color: /*#ffe;*/ #f7f5fa;
+}
+@media(max-width:767px) {
+   .blog-sidebar {
+     position: static;
+     width: auto;
+     top: 0;
+    }
+}
+
+
+.main-region {
+    background: #fff;
+}
+
+/* my poor list divider */
+.list-divider-top {
+    border-top: solid 1px #eee;
+}
+
+.list-divider-bottom {
+    border-bottom: solid 1px #eee;
+}
+
+.copyright-declaration {
+    border: solid 2px red;
+    border-radius: 10px;
+    margin: 30px 0px;
+    padding: 10px;
+    background-color: #F0FFFF;
+}
+
+#go-to-next {
+    float: right;
+    margin-left: 100px;
+}
+
+#do-sync {
+    float: right;
+    margin-left: 60px;
+}
+
+#footer {
+    background-color: #808080;
+    height: 50px;
+}
+
+#footer p {
+    color: #fff;
+}
+
+#recommend-status-tip {
+    float: right;
+}
+
+.ok-text {
+    color: green;
+}
+
+.warning-text {
+    color: red;
+}
+
+/* table style
+
+   borrowed from http://www.freshdesignweb.com/beautiful-css-html-table.html, (NO. 3)
+*/
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;    
+
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;         
+}
+
+table tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+table td, table th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;    
+}
+
+table th {
+    background-color: #dce9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+table td:first-child, table th:first-child {
+    border-left: none;
+}
+
+table th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+table th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+table th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+table tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+table tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+
+
+/* A Very Simple PopUp Box Div
+
+   borrowed from http://forum.jquery.com/topic/a-very-simple-popup-box-div
+*/
+#popup-box {
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:300px;  
+    width:600px;  
+    background:#ffffff;
+    left: 300px;
+    top: 150px;
+    z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+   
+    /* additional features, can be omitted */
+    border:2px solid #0000ff;
+    padding:5px;  /* my customization */
+    font-size:15px;  
+    -moz-box-shadow: 0 0 5px #0000ff;
+    -webkit-box-shadow: 0 0 5px #0000ff;
+    box-shadow: 0 0 5px #0000ff;
+}
+/* my customization */
+#popup-box-close {
+    float: right;
+    border: 1px solid #ddd;
+}
+#popup-box-title {
+    padding: 0px;
+    margin: -40px 0px 20px 0px;
+    text-align: center;
+    font-size: 26px;
+}
+
+
+/* dynamic close button relative to a thumbmail when mouse in 
+
+   this solution is inspired by the above "popup-box" method.
+*/
+#panel-over-thumb {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for internet explorer 6 */  
+    height: 30px;  
+    background: #ffffff;
+    z-index: 100; /* Layering ( on-top of others) */
+    opacity: 0.5;
+}
+#thumb-remove-btn {
+    float: right;
+    border: 1px solid #aaa;
+}
+
+
+/* borrowed from http://www.cnblogs.com/CoolChen/archive/2012/02/23/2365210.html
+*/
+.frame-3d {
+    position:relative;
+    padding:10px;
+    display:block;
+    -moz-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+#home-title {
+    text-align: center;
+    font-size: 50px;
+    color: #444;
+}
+
+#home-image {
+    padding-left: 60px;
+}

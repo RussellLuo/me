@@ -1,0 +1,62 @@
+$def with (sites, admin)
+
+$var title: 爱逛 - RussellLuo
+$var admin: $admin
+
+<div class="row space-bot">
+    $if admin:
+        <div class="c2">
+            <button class="btn btn-default" id="add-site" title="添加">
+                &nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;
+            </button>
+        </div>
+    <div class="c6 centered">
+        <form class="form-inline" id="search-togo-form" role="form">
+            <div class="input-group">
+                <input type="text" placeholder="网站名称，URL关键字" class="form-control" id="search-togo-input" />
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default" id="search-togo-button" title="前往">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div><!-- row space-bot -->
+
+<div class="row space-bot" id="site-thumb-grid">
+    $for site in sites:
+        $ imagename = site['name'] + '.jpg'
+        <div class="c4 space-bot"><a class="thumbnail" href="$site['url']" title="$site['name']" target="_bank"><img src="/static/img/favsite/$imagename" alt="$site['name']" width=256 /></a></div>
+</div><!-- row space-bot -->
+
+$if admin:
+    <div id="popup-box">
+        <div class="row space-bot">
+            <a class="btn btn-sm" id="popup-box-close"><span class="glyphicon glyphicon-remove"></span></a>
+        </div><!-- row space-bot -->
+        <div class="row space-bot">
+            <div class="c11 centered">
+                <h1 id="popup-box-title">添加网站</h1>
+                <form id="popup-form" role="form">
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">名称</span>
+                        <input type="text" class="form-control" placeholder="Example" id="site-name" />
+                        <span class="input-group-addon" id="site-name-tip">*（必填）</span>
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">网址</span>
+                        <input type="text" class="form-control" placeholder="http://www.example.com, http://example.com" id="site-url" />
+                        <span class="input-group-addon" id="site-url-tip">*（必填）</span>
+                    </div>
+                    <button type="submit" class="btn btn-default" id="submit-to-add">提交</button> <span id="submit-status-tip"></span>
+                </form>
+            </div>
+        </div><!-- row space-bot -->
+    </div>
+    
+    <div id="panel-over-thumb">
+        <div class="row space-bot">
+            <a class="btn btn-sm" id="thumb-remove-btn"><span class="glyphicon glyphicon-remove"></span></a>
+        </div><!-- row space-bot -->
+    </div>

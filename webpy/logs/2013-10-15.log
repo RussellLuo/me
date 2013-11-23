@@ -1,0 +1,16 @@
+2013-10-15 14:29:31,801 : ERROR : You must specifiy a URL to take a screenshot of.
+2013-10-15 14:30:14,177 : ERROR : You must specifiy a URL to take a screenshot of.
+2013-10-15 14:31:24,566 : ERROR : You must specifiy a URL to take a screenshot of.
+2013-10-15 14:31:55,698 : ERROR : You must specifiy a URL to take a screenshot of.
+2013-10-15 14:33:21,190 : ERROR : You must specifiy a URL to take a screenshot of.
+2013-10-15 14:34:41,245 : ERROR : You must specifiy a URL to take a screenshot of.
+2013-10-15 14:34:50,921 : ERROR : You must specifiy a URL to take a screenshot of.
+2013-10-15 21:52:50,776 : WARNING : <urlopen error [Errno 22] Invalid argument>
+2013-10-15 21:52:53,887 : WARNING : <urlopen error [Errno 22] Invalid argument>
+2013-10-15 21:52:54,868 : WARNING : <urlopen error [Errno 22] Invalid argument>
+2013-10-15 21:52:55,556 : WARNING : <urlopen error [Errno 22] Invalid argument>
+2013-10-15 21:52:58,876 : WARNING : <urlopen error [Errno 22] Invalid argument>
+2013-10-15 21:53:00,480 : WARNING : <urlopen error [Errno 22] Invalid argument>
+2013-10-15 21:56:09,657 : WARNING : <urlopen error [Errno -2] Name or service not known>
+2013-10-15 21:56:16,385 : WARNING : <urlopen error [Errno -2] Name or service not known>
+2013-10-15 21:56:41,112 : WARNING : HTTP Error 520: Origin Error

@@ -1,0 +1,81 @@
+$def with (content)
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="The personal website of RussellLuo">
+        <meta name="author" content="RussellLuo">
+        <link rel="icon" href="/static/ico/favicon.png">
+        <title>$content.title</title>
+        <link href="/static/css/style.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                background: $bg;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><b>RussellLuo</b></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        $code:
+                            menu = (
+                                ('/', '主页', 'home'),
+                                ('/blog', '博客', 'list'),
+                                ('/favsite', '爱逛', 'heart'),
+                                ('/follow', '关注', 'eye-open'),
+                                ('/bookmark', '书签', 'bookmark'),
+                                ('/about', '关于', 'info-sign'),
+                            )
+                        $for link, name, icon in menu:
+                            $if link == base_url:
+                                <li class="active"><a href="$link"><span class="glyphicon glyphicon-$icon"></span> $name</a></li>
+                            $else:
+                                <li><a href="$link"><span class="glyphicon glyphicon-$icon"></span> $name</a></li>
+                        <!--
+                        <li class="active"><a href="/">主页</a></li>
+                        <li><a href="/blog">博客</a></li>
+                        <li><a href="/bookmark">书签</a></li>
+                        <li><a href="/site">爱逛</a></li>
+                        <li><a href="/about">关于</a></li>
+                        -->
+                    </ul>
+                    <!--ul class="nav navbar-nav navbar-right">
+                        $if not content.admin:
+                            <li><a href="/login">登录</a></li>
+                        $else:
+                            <li><a href="/setting">设置</a></li>
+                    </ul-->
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="g1024 space-bot">
+            $:content
+        </div>
+
+        <div id="footer">
+            <div class="g1024 space-bot">
+                <p>&copy; 2013 - RussellLuo. All rights reserved.</p>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/static/js/lib/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="/static/js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/static/js/lib/require.min.js" data-main="/static/js/main.js"></script>
+    </body>
+</html>

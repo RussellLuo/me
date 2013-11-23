@@ -1,0 +1,72 @@
+$def with (posts, page_id, page_count, admin)
+
+$var title: 博客 - RussellLuo
+$var admin: $admin
+
+$code:
+    grace = 2
+    range = grace * 2
+    start = page_id - grace if page_id - grace > 0 else 1
+    end = start + range
+    if end > page_count:
+        end = page_count
+        start = end - range if end - range > 0 else 1
+
+<style type="text/css">
+body {
+    background-image: url('/static/img/bg.jpg);
+    background-repeat: repeat;
+}
+</style>
+
+<div class="row space-bot" id="blog-post-list">
+    <div class="c4">
+        <ul class="nav blog-sidebar">
+            <li class="list-divider-bottom"><a href="#">========== 回到顶部 ==========</a></li>
+            $for post in posts:
+                <li><a href="#post-$post['postid']">$post['title']</a></li>
+            <li class="list-divider-top">
+                <ul class="pagination pagination-sm">
+                    $if start > 1:
+                        <li><a href="/blog?page=1">1 <span>...</span></a></li>
+                    $for i in xrange(start, end+1):
+                        $if i == page_id:
+                            <!--li class="active"><a href="/blog?page=$i">$i</a></li-->
+                            <li class="active"><span>$i</span></li>
+                        $else:
+                            <li><a href="/blog?page=$i">$i</a></li>
+                    $if end < page_count:
+                        <li><a href="/blog?page=$page_count"><span>...</span> $page_count</a></li>
+                </ul>
+            </li>
+            <li class="list-divider-top">
+                <ul class="pagination">
+                    <li><a href="/blog?do_sync=1" id="do-sync"><span class="glyphicon glyphicon-repeat"></span> 同步更新</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="c8 main-region">
+        <ul class="list-unstyled">
+        $for post in posts:
+            <li>
+                <h1 class="target-with-top-navbar" id="post-$post['postid']">
+                    <a href="/blog/view/$post['postid']">$post['title']</a>
+                </h1>
+                $if not post.get('thumb'):
+                    $:post['summary']
+                $else:
+                    <div class="row">
+                        <div class="c8">$:post['summary']</div>
+                        <div class="c4"><img src="$post['thumb']" width=200px height=150px /></div>
+                    </div>
+                <div class="blog-item-footer">
+                    <span class="glyphicon glyphicon-time"></span> $post['dateCreated']&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-eye-open"></span> 阅读($post['pageviews'])&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-thumbs-up"></span> 推荐($post['starred'])
+                </div>
+                <hr />
+            </li>
+        </ul>
+    </div>
+</div>
