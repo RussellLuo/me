@@ -14,7 +14,7 @@ Must be installed:
 4. pymongo 2.6+
 5. [Markdown][]
 
-Already Included in the source code:
+Already included in the source code:
 
 1. [GrabzIt][]
 2. Bootstrap
