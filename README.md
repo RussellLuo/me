@@ -6,12 +6,20 @@ The source code of my personal website.
 Dependencies
 ------------
 
+Must be installed:
+
 1. Python 2.6+
 2. [web.py][]
 3. MongoDB 2.4+
 4. pymongo 2.6+
-5. [markdown][]
-6. [GrabzIt][]
+5. [Markdown][]
+
+Already Included in the source code:
+
+1. [GrabzIt][]
+2. Bootstrap
+3. IVORY
+4. jQuery
 
 Configuration
 -------------
@@ -37,6 +45,7 @@ Configuration
         'applicationKey': 'your_key',
         'applicationSecret': 'your_secret'
         }
+    ...
 
 Initialize
 ----------
@@ -50,5 +59,5 @@ Run
 
 
 [web.py]: https://github.com/webpy/webpy
-[markdown]: https://github.com/waylan/Python-Markdown
+[Markdown]: https://github.com/waylan/Python-Markdown
 [GrabzIt]: http://grabz.it/api/python/
